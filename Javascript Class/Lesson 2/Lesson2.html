@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script type="text/javascript">
+      function calcOrder() {
+          const TAXRATE = 0.0825
+          
+          var userName=document.getElementById("username").value;
+          var quantity=document.getElementById("quantity").value;
+          var cost=document.getElementById("cost").value;
+          var extendedCost = quantity * cost;
+          var taxAmount = extendedCost * TAXRATE;
+          var orderCost = extendedCost + taxAmount;
+          
+          document.getElementById("costExtended").value = "$" + orderCost.toFixed(2);
+          alert("Hello " + userName + "- Your total comes to $" +orderCost.toFixed(2) + ", including sales tax.");
+      } //end function calcOrder
+  </script>
+
+</head>
+
+<body>
+<h1> Blake Luna Lesson #2</h1>
+  <form action="" method="post" enctype="multipart/form-data" name=wigdetCalc>
+    <input name="username" id="username" type="text" size="20" maxlength="15" />&nbsp;-&nbsp;Name<br/>
+    <input name="quantity" id="quantity" type="text" value="0" size="20" maxlength="4" />&nbsp;-&nbsp;Quantity<br/>
+    <input name="cost" id="cost" type="text" value="5.31" size="20" readonly="readonly" />&nbsp;-&nbsp;Cost<br/>
+    <input name="costExtended" id="costExtended" type="text" size="20" readonly="readonly" />&nbsp;-&nbsp;Total Cost<br/>
+    
+    <p><span style="background-color:#066aff" onclick="calcOrder();" >Submit</span></p>
+  </form>
+</body>
+
+</html>
